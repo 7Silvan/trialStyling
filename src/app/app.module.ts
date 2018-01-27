@@ -1,10 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { AlertModule } from 'ngx-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
+// Services
+import { AlertService } from './services/alert.service';
+
+// Components
 import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
@@ -33,11 +37,13 @@ import { ChatroomWindowComponent } from './pages/chat/components/chatroom-window
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BsDropdownModule.forRoot(),
+    AlertModule.forRoot(),
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    AlertService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

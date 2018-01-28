@@ -1,29 +1,23 @@
-import { Router } from '@angular/router';
-import { Subscription } from 'rxjs/Subscription';
 import { LoadingService } from './../../servies/loading.service';
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AlertType } from './../../enums/alert-type.enum';
 import { Alert } from './../../classes/alert';
 import { AlertService } from './../../services/alert.service';
-import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit, OnDestroy {
+export class LoginComponent implements OnInit {
 
-  private subscriptions: Subscription[] = [];
   public loginForm: FormGroup;
 
   constructor(
     private fb: FormBuilder, 
     private alertService: AlertService,
-    private loadingService: LoadingService,
-    private auth: AuthService,
-    private router: Router
+    private loadingService: LoadingService
   ) {
     this.createForm();
    }
@@ -39,30 +33,22 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   public submit(): void {
-    
-    if (this.loginForm.valid) {
-      this.loadingService.isLoading.next(true);
-      const {email, password} = this.loginForm.value;
+    this.loadingService.isLoading.next(true);
 
+    if (this.loginForm.valid) {
       // TODO call the auth service
-      this.subscriptions.push(
-        this.auth.login(email, password).subscribe(success => {
-          if (success) {
-            this.router.navigate(['/chat']);
-          }
-          this.loadingService.isLoading.next(false);
-        })
-      );
-    } else {
-      const failedLoginAlert = new Alert('Your email or password were invalid, try again.', AlertType.Danger);
+      const {email, password} = this.loginForm.value;
+      console.log(`Email: ${email}, Password: ${password}`);
       this.loadingService.isLoading.next(false);
-      this.alertService.alerts.next(failedLoginAlert);
+    } else {
+      const failedLoginAlert = new Alert('Your email or password were inavalid, try again.', AlertType.Danger);
+      setTimeout(() => {
+        this.loadingService.isLoading.next(false);
+        this.alertService.alerts.next(failedLoginAlert);
+      }, 2000);
+      
     }
    
-  }
-
-  ngOnDestroy() {
-    this.subscriptions.forEach(sub => sub.unsubscribe());
   }
 
 }

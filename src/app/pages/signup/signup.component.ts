@@ -1,30 +1,19 @@
-import { Router } from '@angular/router';
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { AlertService } from './../../services/alert.service';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AlertType } from './../../enums/alert-type.enum';
 import { Alert } from './../../classes/alert';
-import { AuthService } from '../../services/auth.service';
-import { LoadingService } from './../../servies/loading.service';
-import { Subscription } from 'rxjs/Subscription';
-import { AlertService } from './../../services/alert.service';
 
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss']
 })
-export class SignupComponent implements OnInit, OnDestroy {
+export class SignupComponent implements OnInit {
 
-  private subscriptions: Subscription[] = [];
   public signupForm: FormGroup;
 
-  constructor(
-    private fb: FormBuilder, 
-    private alertService: AlertService,
-    private auth: AuthService,
-    private loadingService: LoadingService,
-    private router: Router
-  ) {
+  constructor(private fb: FormBuilder, private alertService: AlertService) {
     this.createForm();
    }
 
@@ -41,30 +30,15 @@ export class SignupComponent implements OnInit, OnDestroy {
   }
 
   public submit(): void {
-    
     if (this.signupForm.valid) {
-      this.loadingService.isLoading.next(true);
-      const {firstName, lastName, email, password} = this.signupForm.value;
-
       // TODO call the auth service
-      this.subscriptions.push(
-        this.auth.signup(firstName, lastName, email, password).subscribe(success => {
-          if (success) {
-            this.router.navigate(['/chat']);
-          }
-          this.loadingService.isLoading.next(false);
-        })
-      );
-      
+      const {firstName, lastName, email, password} = this.signupForm.value;
+      console.log(`First Name: ${firstName}, Last Name: ${lastName}, Email: ${email}, Password: ${password}`);
     } else {
       const failedSignedAlert = new Alert('Please enter a valid name, email and password, try again.', AlertType.Danger);
       this.alertService.alerts.next(failedSignedAlert);
     }
     
-  }
-
-  ngOnDestroy() {
-    this.subscriptions.forEach(sub => sub.unsubscribe());
   }
 
 }

@@ -3,8 +3,12 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
+// Modules
 import { AlertModule } from 'ngx-bootstrap';
 import { LoadingModule } from 'ngx-loading';
+
+// Guards
+import { AuthGuard } from './guards/auth.guard';
 
 // Services
 import { AlertService } from './services/alert.service';
@@ -48,7 +52,8 @@ import { ChatroomWindowComponent } from './pages/chat/components/chatroom-window
   providers: [
     AlertService,
     LoadingService,
-    AuthService
+    AuthService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

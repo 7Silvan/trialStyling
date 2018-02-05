@@ -50,13 +50,17 @@ export class SignupComponent implements OnInit, OnDestroy {
         this.auth.signup(firstName, lastName, email, password).subscribe(success => {
           if (success) {
             this.router.navigate(['/chat']);
+          } else {
+            const failedSignupAlert = new Alert('There was a problem signing up, try again.', AlertType.Danger);
+            this.alertService.alerts.next(failedSignupAlert);
           }
+
           this.loadingService.isLoading.next(false);
         })
       );
     } else {
-      const failedSignedAlert = new Alert('Please enter a valid name, email and password, try again.', AlertType.Danger);
-      this.alertService.alerts.next(failedSignedAlert);
+      const failedSignupAlert = new Alert('Please enter a valid name, email and password, try again.', AlertType.Danger);
+      this.alertService.alerts.next(failedSignupAlert);
     }
   }
 

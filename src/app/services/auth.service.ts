@@ -21,7 +21,7 @@ export class AuthService {
     private afAuth: AngularFireAuth,
     private db: AngularFirestore
   ) {
-    
+
     this.currentUser = this.afAuth.authState
       .switchMap((user) => {
         if (user) {
@@ -53,8 +53,11 @@ export class AuthService {
   }
 
   public login(email: string, password: string): Observable<boolean> {
-    // TODO call Firebase login function
-    return Observable.of(true);
+    return Observable.fromPromise(
+      this.afAuth.auth.signInWithEmailAndPassword(email, password)
+        .then((user) => true)
+        .catch((err) => false)
+    );
   }
 
   public logout(): void {

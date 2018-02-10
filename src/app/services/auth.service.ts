@@ -61,8 +61,9 @@ export class AuthService {
   }
 
   public logout(): void {
-    // TODO call Firebase logout function
-    this.router.navigate(['/login']);
-    this.alertService.alerts.next(new Alert('You have been signed out.'));
+    this.afAuth.auth.signOut().then(() => {
+      this.router.navigate(['/login']);
+      this.alertService.alerts.next(new Alert('You have been signed out.'));
+    });
   }
 }

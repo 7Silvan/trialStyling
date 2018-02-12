@@ -22,7 +22,15 @@ export class ChatroomService {
         return db.doc(`chatrooms/${chatroomId}`).valueChanges();
       }
       return Observable.of(null);
-    })
+    });
+
+    this.selectedChatroomMessages = this.changeChatroom.switchMap(chatroomId => {
+      if (chatroomId) {
+        this.loadingService.isLoading.next(true);
+        return db.collection(`chatrooms/${chatroomId}/messages`).valueChanges();
+      }
+      return Observable.of(null);
+    });
 
     this.chatrooms = db.collection('chatrooms').valueChanges();
    }

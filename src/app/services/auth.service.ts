@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { User } from '../classes/user';
+import { User } from '../interfaces/user';
 import { Alert } from './../classes/alert';
 import { AlertService } from './alert.service';
 import { Observable } from 'rxjs/Observable';
@@ -45,7 +45,9 @@ export class AuthService {
             email: user.email,
             firstName,
             lastName,
-            photoUrl: 'https://firebasestorage.googleapis.com/v0/b/chat-4f314.appspot.com/o/default_profile_pic.jpg?alt=media&token=15171a5a-45fa-4e7e-9a4a-522bb330f2ba'
+            photoUrl: 'https://firebasestorage.googleapis.com/v0/b/chat-4f314.appspot.com/o/default_profile_pic.jpg?alt=media&token=15171a5a-45fa-4e7e-9a4a-522bb330f2ba',
+            quote: 'Life is like a box of chocolates, you never know what you are gonna get!',
+            bio: 'Bio is under construction...'
           }
 
           userRef.set(updatedUser);

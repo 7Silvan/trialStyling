@@ -91,7 +91,6 @@ export class EditProfileComponent implements OnInit, OnDestroy {
         this.alertService.alerts.next(new Alert('Your profile was successfully updated!', AlertType.Success));
       })
       .catch(error => {
-        console.log("error: ", error.toString());
         this.alertService.alerts.next(new Alert(error.message, AlertType.Danger));
       });
     this.location.back();

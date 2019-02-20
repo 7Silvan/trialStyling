@@ -4,8 +4,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AlertType } from './../../enums/alert-type.enum';
 import { Alert } from './../../classes/alert';
 import { AlertService } from './../../services/alert.service';
-import { Subscription } from 'rxjs/Subscription';
-import { LoadingService } from './../../servies/loading.service';
+import { Subscription } from 'rxjs';
+import { LoadingService } from '../../services/loading.service';
 import { AuthService } from '../../services/auth.service';
 
 @Component({

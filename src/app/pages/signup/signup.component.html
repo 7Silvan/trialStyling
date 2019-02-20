@@ -1,24 +1,48 @@
-<app-navbar></app-navbar>
-<div class="container-wrapper container d-flex justify-content-center align-items-center">
-  <div class="form-wrapper text-center">
-    <h2 class="text-center">Sign Up</h2>
-    <form [formGroup]="signupForm" (submit)="submit()" novalidate>
-      <div class="name-wrapper d-flex">
-        <div class="form-group first-name">
-          <input type="text" class="form-control" id="first-name-input" placeholder="First Name" formControlName="firstName">
+<section class="sign-up__block">
+    <div class="row w-100 min-vh-100 no-gutters">
+      <div class="col-md-6 col-6 w-100">
+
+        <div class="sign-up__container no-gutters">
+          <img src="../../../assets/images/Logo/Color/Primary.svg" class="image-logo"/>
+
+          <h2 class="text-left" class="sign-up__header">Create account</h2>
+          <p class="text-left mb-5">
+            Please sign up to your personal account if you want to use all our premium products
+          </p>
+          <div class="custom-form-wrapper text-left">
+            <form [formGroup]="signupForm" (submit)="submit()" novalidate>
+              <div class="form-group">
+                <label for="full-name-input">Full name</label>
+                <input type="text" class="form-control" id="full-name-input" formControlName="fullName" placeholder="Your full name">
+              </div>
+              <div class="form-group">
+                <label for="email-input">Email</label>
+                <input type="email" class="form-control" id="email-input" formControlName="email" placeholder="Your email">
+              </div>
+              <div class="form-group">
+                <label for="password-input">Password</label>
+                <input type="password" class="form-control" id="password-input" formControlName="password" placeholder="Enter your password">
+              </div>
+
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input">
+                  <small>I agree with terms & conditions</small>
+                </label>
+              </div>
+
+              <div>
+                <button type="submit" class="btn btn-primary float-right text-uppercase">Sign up</button>
+              </div>
+            </form>
+            <small class="copy-text">Already have an account? <a routerLink="/login" class="font-weight-bold">Sign in here</a></small>
+          </div>
         </div>
-        <div class="form-group last-name">
-          <input type="text" class="form-control" id="last-name-input" placeholder="Last Name" formControlName="lastName">
-        </div>
+
       </div>
-      <div class="form-group">
-        <input type="email" class="form-control" id="email-input" placeholder="Enter Email" formControlName="email">
-      </div>
-      <div class="form-group">
-        <input type="password" class="form-control" id="password-input" placeholder="Password" formControlName="password">
-      </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-    <small><a routerLink="/login">Already have an Account?</a></small>
-  </div>
-</div>
+      <div class="col-md-6 col-6 image"></div>
+    </div>
+</section>
+
+
+<!--<app-navbar></app-navbar>-->

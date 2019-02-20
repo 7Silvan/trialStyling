@@ -1,10 +1,10 @@
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { LoadingService } from './../../servies/loading.service';
+import { LoadingService } from '../../services/loading.service';
 import { AuthService } from './../../services/auth.service';
 import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { User } from './../../interfaces/user';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-profile',

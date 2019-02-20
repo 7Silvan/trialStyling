@@ -3,11 +3,11 @@ import { Router } from '@angular/router';
 import { User } from '../interfaces/user';
 import { Alert } from './../classes/alert';
 import { AlertService } from './alert.service';
-import { Observable } from 'rxjs/Observable';
+import { Observable, of, from } from 'rxjs';
 import { AlertType } from './../enums/alert-type.enum';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
-import 'rxjs/add/observable/of';
+import { switchMap } from 'rxjs/operators';
 
 
 @Injectable()
@@ -24,25 +24,26 @@ export class AuthService {
   ) {
 
     this.currentUser = this.afAuth.authState
-      .switchMap((user) => {
+      .pipe(
+        switchMap((user) => {
         if (user) {
           return this.db.doc<User>(`users/${user.uid}`).valueChanges();
         } else {
-          return Observable.of(null);
+          return of(null);
         }
       })
-
+      )
     this.setCurrentUserSnapshot();
   }
 
   public signup(firstName: string, lastName: string, email: string, password: string): Observable<boolean> {
-    return Observable.fromPromise(
+    return from(
       this.afAuth.auth.createUserWithEmailAndPassword(email, password)
         .then((user) => {
-          const userRef: AngularFirestoreDocument<User> = this.db.doc(`users/${user.uid}`);
+          const userRef: AngularFirestoreDocument<User> = this.db.doc(`users/${user.user.uid}`);
           const updatedUser = {
-            id: user.uid,
-            email: user.email,
+            id: user.user.uid,
+            email: user.user.email,
             firstName,
             lastName,
             photoUrl: 'https://firebasestorage.googleapis.com/v0/b/chat-4f314.appspot.com/o/default_profile_pic.jpg?alt=media&token=15171a5a-45fa-4e7e-9a4a-522bb330f2ba',
@@ -58,7 +59,7 @@ export class AuthService {
   }
 
   public login(email: string, password: string): Observable<boolean> {
-    return Observable.fromPromise(
+    return from(
       this.afAuth.auth.signInWithEmailAndPassword(email, password)
         .then((user) => true)
         .catch((err) => false)

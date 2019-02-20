@@ -1,9 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'variables';
 @import '../../node_modules/bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css?family=Roboto:300');
 
 body {
-    color: $secondary;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    letter-spacing: -0.11px;
 }
 
 .container-wrapper {
@@ -16,10 +19,17 @@ body {
 
 button {
     width: 100%;
+
     &.btn {
-        border-radius: 0;
+        border-radius: 5px;
+        border-width: 1px;
+
         &:focus {
             box-shadow: none;
         }
+    }
+
+    &.btn-primary {
+        color: white;
     }
 }

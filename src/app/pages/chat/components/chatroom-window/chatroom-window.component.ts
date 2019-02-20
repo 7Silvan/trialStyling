@@ -1,9 +1,9 @@
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit, OnDestroy, AfterViewChecked, ElementRef, ViewChild } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import { Subscription } from 'rxjs/Subscription';
+import { Observable } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { ChatroomService } from './../../../../services/chatroom.service';
-import { LoadingService } from './../../../../servies/loading.service';
+import { LoadingService } from '../../../../services/loading.service';
 
 @Component({
   selector: 'app-chatroom-window',

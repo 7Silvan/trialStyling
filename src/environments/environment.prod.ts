@@ -1,11 +1,11 @@
 export const environment = {
   production: true,
   firebase: {
-    apiKey: 'AIzaSyDlRp7v2Uvu-E8O_E0IDYdC3CoJh9cbNsc',
-    authDomain: 'chat-4f314.firebaseapp.com',
-    databaseURL: 'https://chat-4f314.firebaseio.com',
-    projectId: 'chat-4f314',
-    storageBucket: 'chat-4f314.appspot.com',
-    messagingSenderId: '818262862528'
+    apiKey: "AIzaSyC5wA0uyuaRTcXkH2EdG5-rqPHBoZ7-bsU",
+    authDomain: "mortgage-customer-portal.firebaseapp.com",
+    databaseURL: "https://mortgage-customer-portal.firebaseio.com",
+    projectId: "mortgage-customer-portal",
+    storageBucket: "mortgage-customer-portal.appspot.com",
+    messagingSenderId: "906096764747"
   }
 };

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { AlertService } from './../services/alert.service';
 import { Alert } from './../classes/alert';
 import { AlertType } from './../enums/alert-type.enum';

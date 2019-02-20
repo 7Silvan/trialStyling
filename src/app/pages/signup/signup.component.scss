@@ -1,22 +1,38 @@
 @import '../../../styles/variables';
 
 h2 {
-    color: $secondary;
-    margin-bottom: 1em;
+  color: black;
 }
 
 .form-wrapper {
-    min-width: 40%;
-    margin-bottom: 10%;
-    border: 1px solid $light-grey;
-    padding: 1em 2em;
-    box-shadow: 0 15px 20px $light-grey;
+  min-width: 40%;
+  margin-bottom: 10%;
+  border: 1px solid $light-grey;
+  padding: 1em 2em;
+  box-shadow: 0 15px 20px $light-grey;
 }
 
-.first-name {
-    margin-right: 0.5em;
+.image {
+  background: url(../../../assets/images/auth-page-bg.jpg) no-repeat 0; // center
+  background-size: cover;
 }
 
-.last-name {
-    margin-left: 0.5em;
+.sign-up__block {
+  background-color: $fill-color;
+}
+
+.sign-up__container {
+  // todo make small margin on narrow screen
+  margin-left: calc(16em - 7px);
+  // todo make full width on narrow screen
+  width: 26em;
+}
+
+.sign-up__header {
+  margin-bottom: 0.15em;
+}
+
+.image-logo {
+  margin-top: calc(4em - 1px);
+  margin-bottom: calc(5em + 6px);
 }

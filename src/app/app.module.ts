@@ -6,11 +6,11 @@ import { environment } from '../environments/environment';
 
 // Modules
 import { AlertModule } from 'ngx-bootstrap';
-import { LoadingModule } from 'ngx-loading';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireStorageModule } from 'angularfire2/storage';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { NgxLoadingModule } from 'ngx-loading';
 
 // Guards
 import { AuthGuard } from './guards/auth.guard';
@@ -20,7 +20,7 @@ import { IsOwnerGuard } from './guards/is-owner.guard';
 import { AlertService } from './services/alert.service';
 import { AuthService } from './services/auth.service';
 import { ChatroomService } from './services/chatroom.service';
-import { LoadingService } from './servies/loading.service';
+import { LoadingService } from './services/loading.service';
 
 // Components
 import { AppComponent } from './app.component';
@@ -58,7 +58,7 @@ import { EditProfileComponent } from './pages/edit-profile/edit-profile.componen
     AlertModule.forRoot(),
     ReactiveFormsModule,
     FormsModule,
-    LoadingModule,
+    NgxLoadingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireStorageModule,

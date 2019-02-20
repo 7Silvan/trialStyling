@@ -4,12 +4,13 @@ import { User } from './../../interfaces/user';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { LoadingService } from './../../servies/loading.service';
+import { LoadingService } from '../../services/loading.service';
 import { AuthService } from './../../services/auth.service';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 import { AngularFireStorage } from 'angularfire2/storage';
 import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { Alert } from '../../classes/alert';
+import { finalize } from 'rxjs/operators';
 
 
 @Component({
@@ -68,10 +69,17 @@ export class EditProfileComponent implements OnInit, OnDestroy {
         this.uploadPercent = percentage;
       })
     );
-
+   
     // get notified when the download URL is available
+    var download = task.snapshotChanges().pipe(
+      finalize(() => {
+        this.downloadUrl = file.getDownloadURL()
+      })
+    )
+    .subscribe();
+    
     this.subsubscriptions.push(
-      task.downloadURL().subscribe(url => this.downloadUrl = url)
+      download
     );
   }
 

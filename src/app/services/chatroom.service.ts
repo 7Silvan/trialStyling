@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { LoadingService } from './../servies/loading.service';
+import { BehaviorSubject, of } from 'rxjs';
+import { LoadingService } from './loading.service';
 import { AuthService } from './auth.service';
+import { switchMap, map } from 'rxjs/operators';
 
 @Injectable()
 export class ChatroomService {
@@ -18,23 +19,25 @@ export class ChatroomService {
     private loadingService: LoadingService,
     private authService: AuthService
   ) {
-    this.selectedChatroom = this.changeChatroom.switchMap(chatroomId => {
-      if (chatroomId) {
-        return db.doc(`chatrooms/${chatroomId}`).valueChanges();
-      }
-      return Observable.of(null);
-    });
+    this.selectedChatroom = this.changeChatroom.pipe(
+      switchMap(chatroomId => {
+        if (chatroomId) {
+          return db.doc(`chatrooms/${chatroomId}`).valueChanges();
+        }
+        return of(null);
+      }));
 
-    this.selectedChatroomMessages = this.changeChatroom.switchMap(chatroomId => {
+    this.selectedChatroomMessages = this.changeChatroom.pipe(switchMap(chatroomId => {
       if (chatroomId) {
         return db.collection(`chatrooms/${chatroomId}/messages`, ref => {
           return ref.orderBy('createdAt', 'desc').limit(100);
         })
-        .valueChanges()
-        .map(arr => arr.reverse());
+          .valueChanges().pipe(
+            map(arr => arr.reverse())
+          );
       }
-      return Observable.of(null);
-    });
+      return of(null);
+    }));
 
     this.chatrooms = db.collection('chatrooms').valueChanges();
   }

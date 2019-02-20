@@ -4,8 +4,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AlertType } from './../../enums/alert-type.enum';
 import { Alert } from './../../classes/alert';
 import { AuthService } from '../../services/auth.service';
-import { LoadingService } from './../../servies/loading.service';
-import { Subscription } from 'rxjs/Subscription';
+import { LoadingService } from '../../services/loading.service';
+import { Subscription } from 'rxjs';
 import { AlertService } from './../../services/alert.service';
 
 @Component({
@@ -33,8 +33,7 @@ export class SignupComponent implements OnInit, OnDestroy {
 
   private createForm(): void {
     this.signupForm = this.fb.group({
-      firstName: ['', [Validators.required]],
-      lastName: ['', [Validators.required]],
+      fullName: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8)]]
     });

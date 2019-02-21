@@ -7,6 +7,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
 import { ChatComponent } from './pages/chat/chat.component';
 import { IsOwnerGuard } from './guards/is-owner.guard';
+import { IndexInnerPageComponent } from './pages/inner-pages/main/index-inner-page.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/login' },
@@ -20,9 +21,9 @@ const routes: Routes = [
   },
   { path: 'profile/:userId', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: 'profile/:userId/edit', component: EditProfileComponent, canActivate: [AuthGuard, IsOwnerGuard] },
-  { path: 'inner-pages', canActivate: [AuthGuard],
+  { path: 'inner-pages',
     children: [
-      { path: '', component: ChatComponent }, // todo to be index component
+      { path: '', component: IndexInnerPageComponent }, // todo to be index component
     ]
   },
   { path: '**', redirectTo: '/login' }

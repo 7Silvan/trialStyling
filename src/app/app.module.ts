@@ -35,7 +35,7 @@ import { ChatMessageComponent } from './pages/chat/components/chat-message/chat-
 import { ChatroomWindowComponent } from './pages/chat/components/chatroom-window/chatroom-window.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
-import { MainComponent } from './pages/inner-pages/main/main.component';
+import { IndexInnerPageComponent } from './pages/inner-pages/main/index-inner-page.component';
 import { ForeignNationalComponent } from './pages/inner-pages/foreign-national/foreign-national.component';
 import { InvestorBsComponent } from './pages/inner-pages/investor-bs/investor-bs.component';
 import { InvestorDscrComponent } from './pages/inner-pages/investor-dscr/investor-dscr.component';
@@ -59,14 +59,14 @@ import { TrueStatedIncomeComponent } from './pages/inner-pages/true-stated-incom
     ChatroomWindowComponent,
     ProfileComponent,
     EditProfileComponent,
-    MainComponent,
-    ForeignNationalComponent,
-    InvestorBsComponent,
-    InvestorDscrComponent,
-    InvestorNodocComponent,
-    ItinComponent,
-    StatedIncomeComponent,
-    TrueStatedIncomeComponent,
+    IndexInnerPageComponent,
+    // ForeignNationalComponent,
+    // InvestorBsComponent,
+    // InvestorDscrComponent,
+    // InvestorNodocComponent,
+    // ItinComponent,
+    // StatedIncomeComponent,
+    // TrueStatedIncomeComponent,
   ],
   imports: [
     BrowserModule,

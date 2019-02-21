@@ -35,6 +35,14 @@ import { ChatMessageComponent } from './pages/chat/components/chat-message/chat-
 import { ChatroomWindowComponent } from './pages/chat/components/chatroom-window/chatroom-window.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
+import { MainComponent } from './pages/inner-pages/main/main.component';
+import { ForeignNationalComponent } from './pages/inner-pages/foreign-national/foreign-national.component';
+import { InvestorBsComponent } from './pages/inner-pages/investor-bs/investor-bs.component';
+import { InvestorDscrComponent } from './pages/inner-pages/investor-dscr/investor-dscr.component';
+import { InvestorNodocComponent } from './pages/inner-pages/investor-nodoc/investor-nodoc.component';
+import { ItinComponent } from './pages/inner-pages/itin/itin.component';
+import { StatedIncomeComponent } from './pages/inner-pages/stated-income/stated-income.component';
+import { TrueStatedIncomeComponent } from './pages/inner-pages/true-stated-income/true-stated-income.component';
 
 
 @NgModule({
@@ -50,7 +58,15 @@ import { EditProfileComponent } from './pages/edit-profile/edit-profile.componen
     ChatMessageComponent,
     ChatroomWindowComponent,
     ProfileComponent,
-    EditProfileComponent
+    EditProfileComponent,
+    MainComponent,
+    ForeignNationalComponent,
+    InvestorBsComponent,
+    InvestorDscrComponent,
+    InvestorNodocComponent,
+    ItinComponent,
+    StatedIncomeComponent,
+    TrueStatedIncomeComponent,
   ],
   imports: [
     BrowserModule,

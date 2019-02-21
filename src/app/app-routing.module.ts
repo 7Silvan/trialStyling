@@ -20,6 +20,11 @@ const routes: Routes = [
   },
   { path: 'profile/:userId', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: 'profile/:userId/edit', component: EditProfileComponent, canActivate: [AuthGuard, IsOwnerGuard] },
+  { path: 'inner-pages', canActivate: [AuthGuard],
+    children: [
+      { path: '', component: ChatComponent }, // todo to be index component
+    ]
+  },
   { path: '**', redirectTo: '/login' }
 ];
 

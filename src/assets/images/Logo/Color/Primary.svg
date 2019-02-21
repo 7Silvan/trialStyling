@@ -1,0 +1,13 @@
+
+<svg width="130px" height="35px" viewBox="0 0 130 35" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="Logo/Color/Primary" fill="#FFAB2B" font-family="Helvetica" font-weight="normal">
+                <text id="io" font-size="27" letter-spacing="0.74000001">
+                    <tspan x="0" y="26">i</tspan>
+                    <tspan x="6.73853517" y="26">o</tspan>
+                </text>
+                <text id="finance" font-size="20" letter-spacing="0.200000003">
+                    <tspan x="23" y="25">FINANC</tspan>
+                    <tspan x="98.6433594" y="25">E</tspan>
+                </text>
+    </g>
+</svg>

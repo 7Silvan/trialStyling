@@ -35,7 +35,7 @@ import { ChatMessageComponent } from './pages/chat/components/chat-message/chat-
 import { ChatroomWindowComponent } from './pages/chat/components/chatroom-window/chatroom-window.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
-import { IndexInnerPageComponent } from './pages/inner-pages/main/index-inner-page.component';
+import { IndexInnerPageComponent } from './pages/inner-pages/index-inner-page/index-inner-page.component';
 import { ForeignNationalComponent } from './pages/inner-pages/foreign-national/foreign-national.component';
 import { InvestorBsComponent } from './pages/inner-pages/investor-bs/investor-bs.component';
 import { InvestorDscrComponent } from './pages/inner-pages/investor-dscr/investor-dscr.component';
@@ -43,6 +43,10 @@ import { InvestorNodocComponent } from './pages/inner-pages/investor-nodoc/inves
 import { ItinComponent } from './pages/inner-pages/itin/itin.component';
 import { StatedIncomeComponent } from './pages/inner-pages/stated-income/stated-income.component';
 import { TrueStatedIncomeComponent } from './pages/inner-pages/true-stated-income/true-stated-income.component';
+import { MbNavbarComponent } from './pages/inner-pages/components/mb-navbar/mb-navbar.component';
+import { DisclosureFooterComponent } from './pages/inner-pages/components/disclosure-footer/disclosure-footer.component';
+import { FooterComponent } from './pages/inner-pages/components/footer/footer.component';
+import { LayoutComponent } from './pages/inner-pages/layout/layout.component';
 
 
 @NgModule({
@@ -60,13 +64,17 @@ import { TrueStatedIncomeComponent } from './pages/inner-pages/true-stated-incom
     ProfileComponent,
     EditProfileComponent,
     IndexInnerPageComponent,
-    // ForeignNationalComponent,
-    // InvestorBsComponent,
-    // InvestorDscrComponent,
-    // InvestorNodocComponent,
-    // ItinComponent,
-    // StatedIncomeComponent,
-    // TrueStatedIncomeComponent,
+    MbNavbarComponent,
+    DisclosureFooterComponent,
+    FooterComponent,
+    LayoutComponent,
+    ForeignNationalComponent,
+    InvestorBsComponent,
+    InvestorDscrComponent,
+    InvestorNodocComponent,
+    ItinComponent,
+    StatedIncomeComponent,
+    TrueStatedIncomeComponent,
   ],
   imports: [
     BrowserModule,

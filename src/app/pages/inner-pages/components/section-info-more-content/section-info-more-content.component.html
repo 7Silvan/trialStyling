@@ -1,0 +1,18 @@
+<section class="container info-section more-content">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <div style="text-align: center">
+        <h3>Lorem ipsum dolor sit amet consectetur.</h3>
+        <p>Lorem ipsum dolor sit amet consectetur.</p><br/>
+      </div>
+      <div class="row">
+        <app-mb-article-card *ngFor="let article of articles"
+                             [header]="article.header"
+                             [body]="article.body"
+                             [imageUrl]="article.imageUrl"
+                             [imageAlt]="article.imageAlt"
+        ></app-mb-article-card>
+      </div>
+    </div>
+  </div>
+</section>

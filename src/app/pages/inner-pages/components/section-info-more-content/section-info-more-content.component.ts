@@ -1,13 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+
+export interface IArticle {
+  header: string;
+  body: string;
+  imageUrl: string;
+  imageAlt: string;
+}
 
 @Component({
-  selector: 'app-foreign-national',
-  templateUrl: './foreign-national.component.html',
-  styleUrls: ['./foreign-national.component.scss']
+  selector: 'app-mb-section-info-more-content',
+  templateUrl: './section-info-more-content.component.html',
+  styleUrls: ['./section-info-more-content.component.scss']
 })
-export class ForeignNationalComponent implements OnInit {
+export class SectionInfoMoreContentComponent implements OnInit {
 
-  articles = [
+  @Input() articles: IArticle[] = [
     {
       header: 'Purchase: $1,300,000',
       body: '90% LTV - Closed in 26 Days!',
@@ -34,8 +41,7 @@ export class ForeignNationalComponent implements OnInit {
     },
   ];
 
-  constructor() {
-  }
+  constructor() { }
 
   ngOnInit() {
   }

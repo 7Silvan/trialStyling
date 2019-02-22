@@ -47,6 +47,11 @@ import { MbNavbarComponent } from './pages/inner-pages/components/mb-navbar/mb-n
 import { DisclosureFooterComponent } from './pages/inner-pages/components/disclosure-footer/disclosure-footer.component';
 import { FooterComponent } from './pages/inner-pages/components/footer/footer.component';
 import { LayoutComponent } from './pages/inner-pages/layout/layout.component';
+import { ArticleMbCardComponent } from './pages/inner-pages/components/article-card/article-mb-card.component';
+import { SectionInfoMoreContentComponent } from './pages/inner-pages/components/section-info-more-content/section-info-more-content.component';
+import { SectionInfoSaveMoneyCtaComponent } from './pages/inner-pages/components/section-info-save-money-cta/section-info-save-money-cta.component';
+import { SectionGetAdviceComponent } from './pages/inner-pages/components/section-get-advice/section-get-advice.component';
+import { HeadingSectionComponent } from './pages/inner-pages/components/heading-section/heading-section.component';
 
 
 @NgModule({
@@ -75,6 +80,11 @@ import { LayoutComponent } from './pages/inner-pages/layout/layout.component';
     ItinComponent,
     StatedIncomeComponent,
     TrueStatedIncomeComponent,
+    ArticleMbCardComponent,
+    SectionInfoMoreContentComponent,
+    SectionInfoSaveMoneyCtaComponent,
+    SectionGetAdviceComponent,
+    HeadingSectionComponent,
   ],
   imports: [
     BrowserModule,
